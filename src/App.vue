@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form v-if="registered">
     <label>
       first name : 
     </label>
@@ -43,6 +43,7 @@ export default {
       lastname: "connor",
       fullname: "",
       render:"",
+      registered:true,
     }
   },
   watch:{
@@ -57,6 +58,7 @@ export default {
       this.fullname = this.firstname + ' ' + this.lastname;
       for(let u of this.user){
         if((u.firstname == this.firstname) && (u.lastname == this.lastname)){
+          this.registered = false;
           this.render = u.right;
         }
       }
@@ -65,13 +67,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+ #app{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+ } 
  form{
   width:300px;
   height:250px;
   border:1px solid grey;
   box-shadow: 1px 1px 2px 2px black;
-  margin: 0 auto;
   padding:15px 0px;
  }
  input{
