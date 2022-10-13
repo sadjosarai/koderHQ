@@ -11,16 +11,13 @@
       <p>you are not registered in our data base</p>
     </div>
   </template>
-  <greeting-message/>
 </template>
 
 <script>
-  import GreetingMessage from './components/GreetingMessage'
   import LoginForm from './components/LoginForm'
   export default {
     name: 'App',
     components:{
-      GreetingMessage,
       LoginForm,
     },
     data(){

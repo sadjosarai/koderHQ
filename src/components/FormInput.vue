@@ -1,11 +1,14 @@
 <template>
-    <input :type="type"/>
+    <input :type="type" :placeholder='placeholder'/>
 </template>
 <script>
 export default {
+    props:[
+        'type',
+        'placeholder',
+    ],
     data(){
         return {
-            type: "text"
         }
     }
 }
@@ -14,9 +17,10 @@ export default {
     input{
         outline:none;
         border-radius:5px;
-        border:1px solid grey;
+        border:1px solid rgb(160, 160, 160);
         height:30px;
-        width:80%;
+        width:70%;
         margin: 10px auto;
+        padding : 0 15px;
         }
 </style>

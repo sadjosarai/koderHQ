@@ -1,8 +1,12 @@
 <template>
-    <h2 class='form-title-2'> Form </h2>
+    <h2 class='form-title-2'> {{text}} </h2>
 </template>
 <script >
-
+    export default{
+        props:[
+            'text'
+        ]
+    }
 </script>
 <style>
     .form-title-2{

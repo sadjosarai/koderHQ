@@ -1,8 +1,12 @@
 <template>
-    <button>change the name</button>
+    <button>{{text}}</button>
 </template>
 <script>
-
+    export default{
+        props:[
+            'text'
+        ]
+    }
 </script>
 <style scoped>
     button{

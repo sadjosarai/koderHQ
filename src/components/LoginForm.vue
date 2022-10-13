@@ -7,10 +7,10 @@
         <br/>
         <button @click.prevent="checkUser">change the name</button>
         -->
-        <form-title/>
-        <form-input />
-        <form-input />
-        <form-submit-button />
+        <form-title text='Login Form'/>
+        <form-input type='text' placeholder='firstname, E.g: John'/>
+        <form-input type='text' placeholder='lastname, E.g: DOE'/>
+        <form-submit-button text="Change the name"/>
     </form>
 </template>
 <script>
@@ -28,7 +28,6 @@ export default {
 
         }
     },
-    
 }
 </script>
 <style scoped>
