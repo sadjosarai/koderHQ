@@ -1,16 +1,9 @@
 <template>
     <form>
-        <!--
-        <input type="text" v-model="firstname" placeholder="firstname, E.g: John"/>
-        <br/>
-        <input type="text" v-model="lastname" placeholder="lastname, E.g: DOE"/>
-        <br/>
-        <button @click.prevent="checkUser">change the name</button>
-        -->
         <form-title text='Login Form'/>
-        <form-input type='text' placeholder='firstname, E.g: John'/>
-        <form-input type='text' placeholder='lastname, E.g: DOE'/>
-        <form-submit-button text="Change the name"/>
+        <form-input type='text' placeholder='firstname, E.g: John' v-model="fname"/>
+        <form-input type='text' placeholder='lastname, E.g: DOE' v-model="lname"/>
+        <form-submit-button @checkUser="$emit('checkUser', inputData)"  text="Change the name" />
     </form>
 </template>
 <script>
@@ -23,11 +16,32 @@ export default {
         FormSubmitButton,
         FormTitle
     },
+    emits:[
+        'checkUser',
+    ],
     data(){
         return {
-
+            fname: "",
+            lname: "",
         }
     },
+    watch :{
+        fname(newValue, oldValue){
+            if(newValue != oldValue){
+                this.fname=newValue
+            }
+        },
+        lname(newValue, oldValue){
+            if(newValue != oldValue){
+                this.lname=newValue
+            }
+        }
+    },
+    computed:{
+        inputData(){
+            return [this.fname, this.lname]
+        }
+    }
 }
 </script>
 <style scoped>

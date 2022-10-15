@@ -1,10 +1,17 @@
 <template>
-    <button>{{text}}</button>
+    <button @click.prevent="$emit('checkUser')">{{text}}</button>
 </template>
 <script>
     export default{
-        props:[
-            'text'
+        props:{
+            text: {
+                type : String,
+                required : true,
+                default : 'Submit'
+            }
+        },
+        emits : [
+            'checkUser'
         ]
     }
 </script>

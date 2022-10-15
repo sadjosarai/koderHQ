@@ -3,9 +3,13 @@
 </template>
 <script >
     export default{
-        props:[
-            'text'
-        ]
+        props:{
+            text:{
+                type : String,
+                required : true,
+                default: 'Form'
+            }
+        }
     }
 </script>
 <style>

@@ -1,16 +1,35 @@
 <template>
-    <input :type="type" :placeholder='placeholder'/>
+    <input 
+        :type="type" 
+        :placeholder='placeholder' 
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+    />
 </template>
 <script>
 export default {
-    props:[
-        'type',
-        'placeholder',
-    ],
+    props:{
+        type :{
+            type : String,
+            required: true,
+            default: 'text'
+        },
+        placeholder : {
+            type : String,
+            required : false,
+            default : 'write here...'
+        },
+        modelValue : {
+            type : String,
+            required : false,
+            default : ""
+        }
+    },
     data(){
         return {
+
         }
-    }
+    },
 }
 </script>
 <style scoped>

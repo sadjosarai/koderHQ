@@ -1,14 +1,14 @@
 <template>
-  <login-form />
-  <template v-if="statuschecked">
+  <login-form @checkUser="checkUser" v-if='!registered'/>
+  <template v-if="statusChecked">
     <div v-if="render=='administrator'">
-      <p>Welcome, administrator {{fullname}}</p>
+      <p class="good">Welcome, administrator {{fullname}}</p>
     </div>
     <div v-else-if="render=='user'">
-      <p>Welcome, user {{fullname}}</p>
+      <p class="good">Welcome, user {{fullname}}</p>
     </div>
     <div v-else>
-      <p>you are not registered in our data base</p>
+      <p class=warning>you are not registered in our data base</p>
     </div>
   </template>
 </template>
@@ -38,8 +38,22 @@
         lastname: "",
         fullname: "",
         render:"",
-        registered: true,
-        statuschecked  : false
+        registered: false,
+        statusChecked  : false
+      }
+    },
+    methods:{
+      checkUser(data){
+        this.firstname = data[0];
+        this.lastname = data[1];
+        this.fullname = this.firstname + ' ' + this.lastname;
+        this.statusChecked = true;
+        for(let u of this.user){
+          if((u.firstname == this.firstname) && (u.lastname == this.lastname)){
+            this.registered = !this.registered;
+            this.render = u.right;
+          }
+        }
       }
     },
     watch:{
@@ -49,21 +63,20 @@
         }
       }
     },
-    methods:{
-      checkUser(){
-        this.fullname = this.firstname + ' ' + this.lastname;
-        this.statuschecked = true;
-        for(let u of this.user){
-          if((u.firstname == this.firstname) && (u.lastname == this.lastname)){
-            this.registered = false;
-            this.render = u.right;
-          }
-        }
-      }
-    }
   }
 </script>
 
 <style>
- 
+  p{
+    text-align:center;
+    vertical-align:center;
+    margin: 0 auto;
+  }
+  .good{
+    color:green;
+  }
+  .warning{
+    color:red;
+    margin-top:20px;
+  }
 </style>
