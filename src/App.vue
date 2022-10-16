@@ -1,5 +1,11 @@
 <template>
-  <login-form @checkUser="checkUser" v-if='!registered'/>
+  <sign-up-form @addUser = "addUser" v-if="signing" />
+  <login-form @checkUser="checkUser" v-if='registered'/>
+  <div class="where-are-you">
+    <p @click="switching">
+      {{message}}
+    </p>
+  </div>
   <template v-if="statusChecked">
     <div v-if="render=='administrator'">
       <p class="good">Welcome, administrator </p>
@@ -27,11 +33,13 @@
 <script>
   import LoginForm from './components/LoginForm'
   import UserHome from './components/UserHome'
+  import SignUpForm from './components/SignUpForm'
   export default {
     name: 'App',
     components:{
       LoginForm,
-      UserHome
+      UserHome,
+      SignUpForm
     },
     data(){
       return{
@@ -51,8 +59,10 @@
         lastname: "",
         fullname: "",
         render:"",
-        registered: false,
-        statusChecked  : false
+        registered: true,
+        statusChecked  : false,
+        signing : false,
+        message : 'not yet registered? click here!'
       }
     },
     methods:{
@@ -67,6 +77,28 @@
             this.render = u.right;
           }
         }
+      },
+      switching(){
+        if(this.registered){
+          this.registered = !this.registered
+          this.signing = !this.signing
+          this.message = 'already registered? click here!';
+        }else{
+          this.signing = !this.signing
+          this.registered = !this.registered
+          this.message = 'not yet registered? click here!';
+        }
+      },
+      addUser(data){
+        let newUser = {
+          firstname : data[0],
+          lastname : data[1],
+          dateOfBirth : data[2],
+          placeOfBirth : data[3],
+          username : data[4],
+          password : data[5]
+        }
+        this.user.push(newUser);
       }
     },
     watch:{
@@ -93,19 +125,29 @@
     margin-top:20px;
   }
   .card-img{
-        position:absolute;
-        top:0;
-        width:100%;
-        height: 60%;
-        display:block;
-    }
-    .card-title{
-        max-height: 100px;
-        width:100%;
-        display:flex;
-        flex-flow:column wrap;
-        justify-content: center;
-        align-items:center;
-        position:relative;
-    }
+    position:absolute;
+    top:0;
+    width:100%;
+    height: 60%;
+    display:block;
+  }
+  .card-title{
+    display:block;
+    max-height: 100px;
+    width:100%;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    align-items:center;
+    position:relative;
+  }
+  .where-are-you{
+    margin-top: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size:16px;
+  }
+  .where-are-you:hover{
+    cursor: pointer;
+    color:rgb(28, 107, 224);
+  }
 </style>
