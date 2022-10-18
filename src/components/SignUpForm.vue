@@ -6,7 +6,7 @@
         {{step2Data}}
     </p>
     <keep-alive>
-        <component @Step="checkStep" @submit="$emit('addUser', userInfo)" :is="componentName"/>
+        <component @step="checkStep" :is="componentName"/>
     </keep-alive>
     <p v-if="notFill" style="color:red;">
         {{error}}
@@ -16,10 +16,10 @@
     import SignUpStep1 from './SignUpStep1'
     import SignUpStep2 from './SignUpStep2'
     export default{
-        components : [
+        components : {
             SignUpStep1,
             SignUpStep2
-        ],
+        },
         emits:[
             'addUser'
         ],
@@ -49,7 +49,7 @@
                 }else{
                     if(data[data.length-1] == 'ready'){
                         this.step2Data = data.slice(0, -1);
-                        this.userInfo = this.step1Data.concat(this.ste2Data);
+                        this.userInfo = this.step1Data.concat(this.step2Data);
                         this.$emit('addUser', this.userInfo);
                     }else{
                         this.step2Data = data.slice(0, -1);

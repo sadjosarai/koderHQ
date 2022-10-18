@@ -1,7 +1,15 @@
 <template>
   <sign-up-form @addUser = "addUser" v-if="signing" />
+  <div v-if="registered">
+    <P>
+      {{user}}
+    </P>
+    <p>
+      the new data is : {{newData}}
+    </p>
+  </div>
   <login-form @checkUser="checkUser" v-if='registered'/>
-  <div class="where-are-you">
+  <div class="where-are-you" v-if="!log">
     <p @click="switching">
       {{message}}
     </p>
@@ -47,11 +55,15 @@
           {
             firstname:"john",
             lastname :"DOE",
+            username : 'john',
+            password: 'DOE',
             right :"user",
           },
           {
             firstname:"jane",
             lastname :"DOE",
+            username : 'jane',
+            password: 'DOE',
             right :"administrator",
           }
         ],
@@ -62,17 +74,20 @@
         registered: true,
         statusChecked  : false,
         signing : false,
-        message : 'not yet registered? click here!'
+        message : 'not yet registered? click here!',
+        newData : '' ,
+        log : false  
       }
     },
     methods:{
       checkUser(data){
-        this.firstname = data[0];
-        this.lastname = data[1];
-        this.fullname = this.firstname + ' ' + this.lastname;
+        this.username = data[0];
+        this.password = data[1];
         this.statusChecked = true;
         for(let u of this.user){
-          if((u.firstname == this.firstname) && (u.lastname == this.lastname)){
+          if((u.username == this.username) && (u.password == this.password)){
+            this.fullname = u.firstname + ' ' + u.lastname;
+            this.log = true;
             this.registered = !this.registered;
             this.render = u.right;
           }
@@ -90,23 +105,29 @@
         }
       },
       addUser(data){
+        this.newData = data;
         let newUser = {
           firstname : data[0],
           lastname : data[1],
           dateOfBirth : data[2],
           placeOfBirth : data[3],
           username : data[4],
-          password : data[5]
+          password : data[5],
+          right: 'user'
         }
         this.user.push(newUser);
+        this.statusChecked = false;
+        this.registered = !this.registered;
+        this.signing = !this.signing;
       }
     },
     watch:{
-      fullname(newValue, oldValue){
-        if(newValue!=oldValue){
-          alert('you changed your name to this : ' + this.fullname)
+      user(newValue, oldValue){
+        if(newValue != oldValue){
+          this.user = newValue;
         }
-      }
+      },
+    
     },
   }
 </script>

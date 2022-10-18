@@ -4,11 +4,12 @@
         <p v-if="error">
             {{error}}
         </p>
-        <form-input type='text' placeholder='enter your username' v-model="username" required/>
+        <form-input type='text' placeholder='enter your username' v-model="userName" required/>
         <form-input type='password' placeholder='enter your password' v-model="password" required/>
         <form-input type='password' placeholder='confirm your password' v-model="cPassword" required/>
         <div class="button-div">
-            <form-submit-button @click="$emit('Step', inputData)"  text="Previous Step" />
+            <form-submit-button @click="$emit('step', inputData)"  text="Previous Step" />
+            <br/>
             <form-submit-button @click="checkPassword"  text="Submit" />
         </div>
     </form>
@@ -18,13 +19,13 @@
     import FormTitle from './FormTitle'
     import FormSubmitButton from './FormSubmitButton'
     export default {
-        components: [
+        components: {
             FormInput,
             FormTitle,
             FormSubmitButton
-        ],
+        },
         emits :[
-            'Step',
+            'step',
         ],
         data(){
             return {
@@ -38,10 +39,10 @@
         },
         methods:{
             checkPassword(){
-                if(this. username && this.password && this.cPassword){
+                if(this. userName && this.password && this.cPassword){
                     if(this.password == this.cPassword){
                         this.step = 'ready';
-                        this.$emit('Step', this.inputData);
+                        this.$emit('step', this.inputData);
                     }else{
                         this.error = 'the two password must be similar';
                     }
@@ -51,9 +52,9 @@
             }
         },
         watch: {
-            username(newValue, oldValue){
+            userName(newValue, oldValue){
                 if(newValue != oldValue){
-                    this.username = newValue;
+                    this.userName = newValue;
                 }
             },
             password(newValue, oldValue){
@@ -69,7 +70,7 @@
         },
         computed : {
             inputData(){
-                return [this.username, this.password, this.step]
+                return [this.userName, this.password, this.step]
             }
         }
     }
@@ -84,14 +85,17 @@
         display:flex;
         flex-direction:column;
         align-items: center;
-        position : relative;
     }
     .button-div{
-        width :90%;
+        width :80%;
+        height : 50px;
         display: flex;
         flex-flow: row nowrap;
+        align-items:center;
+        justify-content:space-between;
     }
-    form-submit-button{
+    button{
+        display: block;
         width: 45%;
     }
 </style>

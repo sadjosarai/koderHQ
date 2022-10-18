@@ -5,7 +5,7 @@
         <form-input type='text' placeholder='lastname, E.g: DOE' v-model="lName"/>
         <form-input type='date' placeholder='Date of birth, E.g: 01/01/2000' v-model="dBirth" required/>
         <form-input type='text' placeholder='Place of birth, E.g: Yaounde' v-model="pBirth" required/>
-        <form-submit-button @click="$emit('Step', inputData)"  text="Next Step" />
+        <form-submit-button @click="$emit('step', inputData)"  text="Next Step" />
     </form>
 </template>
 <script>
@@ -13,13 +13,13 @@
     import FormTitle from './FormTitle'
     import FormSubmitButton from './FormSubmitButton'
     export default {
-        components: [
+        components: {
             FormInput,
             FormTitle,
             FormSubmitButton
-        ],
+        },
         emits :[
-            'Step'
+            'step'
         ],
         data(){
             return {
@@ -33,7 +33,7 @@
         watch: {
             fName(newValue, oldValue){
                 if(newValue != oldValue){
-                    this.fName = newValue.toLocalUpperCase();
+                    this.fName = newValue;
                 }
             },
             lName(newValue, oldValue){
@@ -63,7 +63,7 @@
     form{
         border-radius:5px;
         width:300px;
-        height:350px;
+        height:450px;
         border:1px solid grey;
         padding:15px 0px;
         display:flex;

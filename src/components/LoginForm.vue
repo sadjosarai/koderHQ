@@ -1,9 +1,9 @@
 <template>
     <form>
         <form-title text='Login Form'/>
-        <form-input type='text' placeholder='firstname, E.g: John' v-model="fname"/>
-        <form-input type='text' placeholder='lastname, E.g: DOE' v-model="lname"/>
-        <form-submit-button @checkUser="$emit('checkUser', inputData)"  text="Change the name" />
+        <form-input type='text' placeholder='username' v-model="username"/>
+        <form-input type='password' placeholder='Password' v-model="password"/>
+        <form-submit-button @checkUser="$emit('checkUser', inputData)"  text="Sign In" />
     </form>
 </template>
 <script>
@@ -21,25 +21,25 @@ export default {
     ],
     data(){
         return {
-            fname: "",
-            lname: "",
+            username: "",
+            password: "",
         }
     },
     watch :{
-        fname(newValue, oldValue){
+        username(newValue, oldValue){
             if(newValue != oldValue){
-                this.fname=newValue
+                this.username=newValue
             }
         },
-        lname(newValue, oldValue){
+        password(newValue, oldValue){
             if(newValue != oldValue){
-                this.lname=newValue
+                this.password=newValue
             }
         }
     },
     computed:{
         inputData(){
-            return [this.fname, this.lname]
+            return [this.username, this.password]
         }
     }
 }
@@ -55,5 +55,9 @@ export default {
         flex-direction:column;
         align-items: center;
         position : relative;
+    }
+    button{
+        position:absolute;
+        bottom:50px;
     }
 </style>
