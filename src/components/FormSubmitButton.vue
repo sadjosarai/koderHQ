@@ -22,7 +22,7 @@
         border:none;
         border-radius:5px;
         width:80%;
-        height:30px;
+        height:40px;
     }
     button:hover{
         background-color:rgb(4, 119, 4);

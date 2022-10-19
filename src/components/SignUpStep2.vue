@@ -95,7 +95,7 @@
         justify-content:space-between;
     }
     button{
-        display: block;
         width: 45%;
+        margin-top:20px;
     }
 </style>

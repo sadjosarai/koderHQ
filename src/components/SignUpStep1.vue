@@ -71,4 +71,8 @@
         align-items: center;
         position : relative;
     }
+    button{
+        position:absolute;
+        bottom : 50px;
+    }
 </style>

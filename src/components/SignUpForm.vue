@@ -1,10 +1,4 @@
 <template>
-    <p v-if="step1Data">
-        {{step1Data}}
-    </p>
-    <p v-if="step2Data">
-        {{step2Data}}
-    </p>
     <keep-alive>
         <component @step="checkStep" :is="componentName"/>
     </keep-alive>
