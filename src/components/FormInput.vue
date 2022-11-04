@@ -4,6 +4,7 @@
         :placeholder='placeholder' 
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
+        ref="inputRef"
     />
 </template>
 <script>
@@ -30,6 +31,14 @@ export default {
 
         }
     },
+    methods:{
+        focus(){
+            this.$refs.inputRef.focus()
+        }
+    },
+    // mounted(){
+    //     this.focus()
+    // }
 }
 </script>
 <style scoped>
@@ -42,4 +51,8 @@ export default {
         margin: 10px auto;
         padding : 0 15px;
         }
+    input:focus{
+        outline: 1px solid rgb(86, 86, 240);
+        background-color: rgb(177, 185, 221);
+    }
 </style>

@@ -1,8 +1,8 @@
 <template>
     <form>
         <form-title text='Login Form'/>
-        <form-input type='text' placeholder='username' v-model="username"/>
-        <form-input type='password' placeholder='Password' v-model="password"/>
+        <form-input type='text' placeholder='username' v-model="username" ref="usernameRef" />
+        <form-input type='password' placeholder='Password' v-model="password" ref="passwordRef"/>
         <form-submit-button @checkUser="$emit('checkUser', inputData)"  text="Sign In" />
     </form>
 </template>
@@ -41,6 +41,14 @@ export default {
         inputData(){
             return [this.username, this.password]
         }
+    },
+    mounted(){
+        this.focusInput()
+    },
+    methods:{
+        focusInput(){
+            this.$refs.usernameRef.focus()
+        }
     }
 }
 </script>
@@ -60,4 +68,5 @@ export default {
         position:absolute;
         bottom:50px;
     }
+
 </style>

@@ -21,6 +21,19 @@
         flex-flow: column wrap;
         justify-content:center;
         align-items:center;
+        background-color: linear-gradient(rgb(116, 116, 248), rgb(232, 237, 248));
+      }
+      #modal-container{
+        position:absolute;
+        z-index:999;
+        display :hidden;
+        /* background-color:whitesmoke;
+        backdrop-filter: blur(60%);
+        width:100vh;
+        height:100vw;
+        display:hidden;
+        justify-content:center;
+        align-items:center; */
       }
     </style>
   </head>
@@ -29,6 +42,18 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <div id="modal-container"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    let modalContainer = document.querySelector('#modal-container');
+    // if(modalContainer.childNodes){
+    //   modalContainer.style.display = 'flex';
+    // }
+    modalContainer.onclick = () =>{
+      console.log('accessing message');
+      modalContainer.style.overflow = "hidden";
+      console.log('message writen');
+    }
+  </script>
 </html>

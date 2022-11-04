@@ -29,18 +29,23 @@
       <p class=warning>you are not registered in our data base</p>
     </div>
   </template>
+  <teleport to='#modal-container' v-if="modal">
+    <main-modal @closeModal="closeModal"/>
+  </teleport>
 </template>
 
 <script>
   import LoginForm from './components/LoginForm'
   import UserHome from './components/UserHome'
   import SignUpForm from './components/SignUpForm'
+  import MainModal from './components/MainModal'
   export default {
     name: 'App',
     components:{
       LoginForm,
       UserHome,
-      SignUpForm
+      SignUpForm,
+      MainModal
     },
     data(){
       return{
@@ -68,14 +73,20 @@
         statusChecked  : false,
         message : 'not yet registered? click here!',
         newData : '' ,
-        log : false  
+        log : false,
+        modal: false,  
+      }
+    },
+    provide(){
+      return {
+        fullname : this.fullname
       }
     },
     methods:{
       checkUser(data){
         this.username = data[0];
         this.password = data[1];
-        this.statusChecked = true;
+        this.modal = true;
         for(let u of this.user){
           if((u.username == this.username) && (u.password == this.password)){
             this.fullname = u.firstname + ' ' + u.lastname;
@@ -83,6 +94,10 @@
             this.render = u.right;
           }
         }
+      },
+      closeModal(){
+        this.modal = false;
+        this.statusChecked = true;
       },
       switching(){
         if(this.formName == 'login-form'){
@@ -113,6 +128,11 @@
       user(newValue, oldValue){
         if(newValue != oldValue){
           this.user = newValue;
+        }
+      },
+      fullname(newValue, oldValue){
+        if(newValue != oldValue){
+          this.fullname = newValue;
         }
       },
     
