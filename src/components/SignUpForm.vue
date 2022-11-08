@@ -2,7 +2,7 @@
     <keep-alive>
         <component @step="checkStep" :is="componentName"/>
     </keep-alive>
-    <p v-if="notFill" style="color:red;">
+    <p v-if="notFill" class="warning">
         {{error}}
     </p>
 </template>
@@ -56,5 +56,7 @@
     }
 </script>
 <style>
-    
+    warning{
+        color: rgb(187, 12, 12);
+    }
 </style>

@@ -85,6 +85,8 @@
         display:flex;
         flex-direction:column;
         align-items: center;
+        background-color: rgba(255, 255, 255, 0.829);
+        backdrop-filter: blur(5px);
     }
     .button-div{
         width :80%;

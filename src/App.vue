@@ -39,6 +39,7 @@
   import UserHome from './components/UserHome'
   import SignUpForm from './components/SignUpForm'
   import MainModal from './components/MainModal'
+  import userData from './assets/data/user.json'
   export default {
     name: 'App',
     components:{
@@ -49,22 +50,7 @@
     },
     data(){
       return{
-        user:[
-          {
-            firstname:"john",
-            lastname :"DOE",
-            username : 'john',
-            password: 'DOE',
-            right :"user",
-          },
-          {
-            firstname:"jane",
-            lastname :"DOE",
-            username : 'jane',
-            password: 'DOE',
-            right :"administrator",
-          }
-        ],
+        user: userData,
         firstname: "",
         lastname: "",
         fullname: "",
@@ -177,6 +163,10 @@
   }
   .where-are-you:hover{
     cursor: pointer;
-    color:rgb(28, 107, 224);
+    color:rgb(28, 224, 132);
+  }
+  img{
+    height:100%;
+    width:100%;
   }
 </style>

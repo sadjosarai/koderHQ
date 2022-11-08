@@ -1,7 +1,7 @@
 <template>
     <form>
         <form-title text='Login Form'/>
-        <form-input type='text' placeholder='username' v-model="username" ref="usernameRef" />
+        <form-input type='text' placeholder='username' @keypress.down="focusPassword" v-model="username" ref="usernameRef" />
         <form-input type='password' placeholder='Password' v-model="password" ref="passwordRef"/>
         <form-submit-button @checkUser="$emit('checkUser', inputData)"  text="Sign In" />
     </form>
@@ -48,6 +48,9 @@ export default {
     methods:{
         focusInput(){
             this.$refs.usernameRef.focus()
+        },
+        focusPassword(){
+            this.$refs.passwordRef.focus()
         }
     }
 }
@@ -63,6 +66,9 @@ export default {
         flex-direction:column;
         align-items: center;
         position : relative;
+        background-color: rgba(255, 255, 255, 0.925);
+        -webkit-background-color: rgba(255, 255, 255, 0.884);
+        backdrop-filter: blur(5px);
     }
     button{
         position:absolute;

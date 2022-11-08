@@ -18,8 +18,9 @@ export default {
 </script>
 <style>
     .main-modal-container{
-        background-color:rgba(200, 220, 250, 0.9);
-        backdrop-filter: blur(80%);
+        background-color:rgba(200, 220, 250, 0.664);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
         width:100vw;
         height:100vh;
         display:flex;

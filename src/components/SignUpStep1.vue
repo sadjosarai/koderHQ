@@ -70,6 +70,8 @@
         flex-direction:column;
         align-items: center;
         position : relative;
+        background-color: rgba(255, 255, 255, 0.815);
+        backdrop-filter: blur(5px);
     }
     button{
         position:absolute;
