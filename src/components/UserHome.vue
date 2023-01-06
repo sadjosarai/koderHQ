@@ -12,8 +12,8 @@
 </template>
 <style scoped>
     .window{
-        height:50vh;
-        width:50vw;
+        height:90vh;
+        width:100vw;
         display:flex;
         flex-flow:column wrap;
         align-items: center;
