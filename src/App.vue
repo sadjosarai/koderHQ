@@ -195,5 +195,9 @@
     display:flex;
     flex-direction:row;
     justify-content: space-between;
+    height:10%;
+  }
+  .body-wrapper{
+    height:100%;
   }
 </style>

@@ -1,24 +1,44 @@
 <template>
     <div class="window">
-        <slot>
-            <h1>
-                ERROR 404
-            </h1>
-            <h2>
-                content not found
-            </h2>
-        </slot>
+        <div class="sideBar">
+
+        </div>
+        <div class="workspace">
+            <nav class="path">
+
+            </nav>
+            <div class="contents">
+
+            </div>
+        </div>
     </div>
 </template>
-<style scoped>
+<style>
     .window{
-        height:90vh;
-        width:100vw;
+        height:100%;
+        width:100%;
         display:flex;
-        flex-flow:column wrap;
+        flex-flow:row nowrap;
         align-items: center;
-        border:1px solid grey;
-        border-radius:5px;
         position:relative;
-    } 
+    }
+    .sideBar{
+        width:20%;
+        height:100%;
+        background-image: linear-gradient(rgb(75, 186, 223),rgb(100, 98, 240), rgb(75, 186, 223),rgb(75, 186, 223));
+    }
+    .workspace{
+        width:80%;
+        height:100%;
+        background-color: white;
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content:flex-start;
+        align-content: center;
+    }
+    .path{
+        height: 50px;
+        width:100%;
+        background-color: rgba(75, 186, 223, 0.295);
+    }
 </style>
