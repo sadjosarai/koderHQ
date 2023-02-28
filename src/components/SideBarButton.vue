@@ -14,12 +14,15 @@ export default {
 </script>
 <style>
     .icon-container{
-        height: 80px;
-        width:50px;
+        height: 30px;
+        width:30px;
         border-radius: 5px;
         color:white;
         font-size:36px;
         background-color: rgb(1, 156, 71);
+        display:flex;
+        align-items:center;
+        justify-content: center;
     }
     .icon-container:hover{
         background-color: rgb(3, 116, 27);

@@ -3,15 +3,13 @@
     class="sidebar-item" 
     :text="text"
     >
-        <SideBarButton>
-            
-        </SideBarButton>
+        <SideBarButton/>
         <p>
             {{text}}
         </p>
-        <slot v-if="options">
+        <!-- <slot v-if="options">
 
-        </slot>
+        </slot> -->
     </div>
 </template>
 <script>
