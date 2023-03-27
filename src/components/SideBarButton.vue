@@ -23,6 +23,7 @@ export default {
         display:flex;
         align-items:center;
         justify-content: center;
+        margin-right: 5px;
     }
     .icon-container:hover{
         background-color: rgb(3, 116, 27);

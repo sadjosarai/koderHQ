@@ -28,3 +28,14 @@ export default {
     }
 }
 </script>
+<style scoped>
+ .sidebar-item{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    color:white;
+    align-items: center;
+    justify-content: flex-start;
+    padding:5px;
+ }
+</style>

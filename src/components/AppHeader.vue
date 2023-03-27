@@ -26,17 +26,15 @@ export default {
     
 }
 </script>
-<style>
+<style scoped>
     .user-header{
         height:70px;
-        width:100vw;
+        width:100%;
         background-image: linear-gradient(to right, rgb(100, 98, 240), rgb(75, 186, 223), rgb(75, 186, 223), rgb(70, 68, 190));
-        /*background-color: rgba(140, 67, 209, 0.808);*/
         display :flex;
         justify-content: space-between;
         align-items: center;
-        position:relative;
-        padding: 0px 15px;
+        padding: 0px 0px;
     }
     .user-profile{
         height: 50px;
@@ -47,6 +45,10 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-right: 10px;
+    }
+    .logo-container{
+        margin-left: 10px;
     }
     ul{
         display: flex;

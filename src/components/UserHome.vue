@@ -1,7 +1,7 @@
 <template>
     <div class="window">
         <div class="sideBar">
-            <side-bar-item/>
+            <side-bar-item text="company name 1"/>
         </div>
         <div class="workspace">
             <nav class="path">
@@ -22,9 +22,9 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
     .window{
-        height:100%;
+        height:90%;
         width:100%;
         display:flex;
         flex-flow:row nowrap;
@@ -32,7 +32,7 @@ export default{
         position:relative;
     }
     .sideBar{
-        padding-top:15px;
+        padding-top:0px;
         width:20%;
         height:100%;
         background-image: linear-gradient(rgb(75, 186, 223),rgb(100, 98, 240), rgb(75, 186, 223),rgb(75, 186, 223));

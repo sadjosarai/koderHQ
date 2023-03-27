@@ -10,18 +10,8 @@
   </template>
   <!--main body, for user and administrator, only appear after status check-->
   <template v-if="statusChecked">
-    <div class="main-wrapper">
-      <div class="header-wrapper">
-        <app-header>
-
-        </app-header>
-      </div>
-      <div class="body-wrapper">
-        <user-home>
-
-        </user-home>
-      </div>
-    </div>
+    <AppHeader/>
+    <UserHome/>
     <!-- <div v-if="render == 'administrator'">
       <p class="good">Welcome, administrator </p>
       <user-home>
@@ -190,14 +180,5 @@
     height:100%;
     display:flex;
     flex-direction:column;
-  }
-  .header-wrapper{
-    display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    height:10%;
-  }
-  .body-wrapper{
-    height:100%;
   }
 </style>
