@@ -25,7 +25,7 @@ export default {
         justify-content: center;
         margin-right: 5px;
     }
-    .icon-container:hover{
-        background-color: rgb(3, 116, 27);
+    .sidebar-item:hover > .icon-container{
+         background-color: rgb(3, 116, 27);
     }
 </style>
