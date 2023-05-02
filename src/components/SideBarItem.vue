@@ -3,8 +3,10 @@
     class="sidebar-item" 
     :text="text"
     :symbole="symbole"
+    :type='type'
     >
-        <SideBarButton/>
+        <!-- <SideBarButton/> -->
+        <component :is="componentName"/>
         <p>
             {{text}}
         </p>
@@ -15,24 +17,39 @@
 </template>
 <script>
 import SideBarButton from './SideBarButton';
+import SideBarListButton from './SideBarListButton';
 export default {
     components:{
         SideBarButton,
+        SideBarListButton,
     },
     props:[
         'text',
-        'symbole'
+        'symbole',
+        'type'
     ],
     data(){
         return{
            options:false, 
         }
     },
+    computed:{
+        componentName() {
+            if(this.$props.type == 'b'){
+                return 'side-bar-list-button'
+            }else{
+                return 'side-bar-button'
+            }
+        }
+    },
+    created(){
+        console.log(this.$props.type)
+    },
     provide(){
         return{
             symbole : this.symbole
         }
-    }
+    },
 }
 </script>
 <style scoped>
@@ -52,7 +69,6 @@ export default {
  .sidebar-item:hover{
     background-color: rgba(255, 255, 255, 0.40);
     backdrop-filter: blur(6px);
-    box-shadow: 0px 2px 2px 1px rgba(128, 128, 128, 0.5);
     cursor: pointer;
  }
 </style>

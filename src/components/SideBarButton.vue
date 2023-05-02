@@ -14,7 +14,7 @@ export default {
     ]
 }
 </script>
-<style>
+<style scoped>
     .icon-container{
         height: 30px;
         width:30px;
