@@ -18,9 +18,9 @@ export default {
     .icon-container{
         height: 30px;
         width:30px;
-        border-radius: 5px;
+        border-radius: 50%;
         color:white;
-        font-size:36px;
+        font-size:16px;
         background-color: rgb(1, 156, 71);
         display:flex;
         align-items:center;

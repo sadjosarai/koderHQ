@@ -1,11 +1,11 @@
 <template>
     <div class="window">
         <div class="sideBar">
-            <side-bar-item text="New Company"/>
-            <side-bar-item text="company name 2"/>
-            <side-bar-item text="company name 3"/>
-            <side-bar-item text="company name 4"/>
-            <side-bar-item text="company name 5"/>
+            <side-bar-item text="New Company" symbole="+"/>
+            <side-bar-item text="company name 2" symbole="C"/>
+            <side-bar-item text="company name 3" symbole="C"/>
+            <side-bar-item text="company name 4" symbole="C"/>
+            <side-bar-item text="company name 5" symbole="C"/>
         </div>
         <div class="workspace">
             <nav class="path">

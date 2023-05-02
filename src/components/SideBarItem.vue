@@ -2,6 +2,7 @@
     <div 
     class="sidebar-item" 
     :text="text"
+    :symbole="symbole"
     >
         <SideBarButton/>
         <p>
@@ -20,10 +21,16 @@ export default {
     },
     props:[
         'text',
+        'symbole'
     ],
     data(){
         return{
            options:false, 
+        }
+    },
+    provide(){
+        return{
+            symbole : this.symbole
         }
     }
 }
