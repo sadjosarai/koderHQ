@@ -9,19 +9,25 @@
         </div>
         <div class="workspace">
             <nav class="path">
-
+                <a href="">home</a>
+                 > 
+                <a href="">Company name</a> 
+                 > 
+                <a href="">Project name</a>
             </nav>
             <div class="contents">
-
+                <todo-dock/>
             </div>
         </div>
     </div>
 </template>
 <script>
 import SideBarItem from './SideBarItem'
+import TodoDock from './TodoDock'
 export default{
     components:{
       SideBarItem,
+      TodoDock
     },
 }
 </script>
@@ -56,7 +62,28 @@ export default{
     }
     .path{
         height: 50px;
-        width:100%;
+        width: calc(100% - 10px);
         background-color: rgba(75, 186, 223, 0.295);
+        color:white;
+        font-size:18px;
+        display: flex;
+        align-items: center ;
+        padding-left: 10px;
+    }
+    .path a{
+        text-decoration: none;
+        color:white;
+        margin:0 5px;
+        padding-bottom: 4px;
+    }
+    .path a:hover{
+        color : rgb(100, 98, 240);
+    }
+    .contents{
+        padding: 10px 20px;
+        width:calc(100%-40px);
+        display: flex;
+        flex-flow:row nowrap;
+        justify-content: flex-start;
     }
 </style>
