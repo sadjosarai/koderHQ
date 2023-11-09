@@ -1,6 +1,7 @@
 <template>
     <div class="user-header">
-       <div class="logo-container">
+        <div class="header-container">
+                   <div class="logo-container">
             <slot name="logo">
                 <span style="font-size:49px">LOGO</span>
             </slot>
@@ -19,6 +20,7 @@
                     <p style="font-size:46px;color:white;font-weight:700;">U</p>
             </slot>
        </div>
+        </div>
     </div>
 </template>
 <script>
@@ -28,15 +30,20 @@ export default {
 </script>
 <style>
     .user-header{
-        height:70px;
-        width:100vw;
+        height:100%;
+        width:100%;
         background-image: linear-gradient(to right, rgb(100, 98, 240), rgb(75, 186, 223), rgb(75, 186, 223), rgb(70, 68, 190));
-        /*background-color: rgba(140, 67, 209, 0.808);*/
+        display :flex;
+        justify-content: center;
+        align-items: center;
+        position:relative;
+    }
+    .header-container{
+        height: 100%;
+        width: 95%;
         display :flex;
         justify-content: space-between;
         align-items: center;
-        position:relative;
-        padding: 0px 15px;
     }
     .user-profile{
         height: 50px;

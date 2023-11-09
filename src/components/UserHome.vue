@@ -1,7 +1,7 @@
 <template>
     <div class="window">
-        <div class="sideBar">
-            <side-bar-item/>
+        <div class="sidebar-container">
+            <side-bar/>
         </div>
         <div class="workspace">
             <nav class="path">
@@ -14,10 +14,10 @@
     </div>
 </template>
 <script>
-import SideBarItem from './SideBarItem'
+import SideBar from './SideBar'
 export default{
     components:{
-      SideBarItem,
+      SideBar,
     },
 }
 </script>
@@ -31,8 +31,7 @@ export default{
         align-items: center;
         position:relative;
     }
-    .sideBar{
-        padding-top:15px;
+    .sidebar-container{
         width:20%;
         height:100%;
         background-image: linear-gradient(rgb(75, 186, 223),rgb(100, 98, 240), rgb(75, 186, 223),rgb(75, 186, 223));
@@ -48,7 +47,7 @@ export default{
         display:flex;
         flex-flow: column nowrap;
         justify-content:flex-start;
-        align-content: center;
+        align-content: flex-start;
     }
     .path{
         height: 50px;

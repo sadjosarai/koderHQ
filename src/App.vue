@@ -12,14 +12,10 @@
   <template v-if="statusChecked">
     <div class="main-wrapper">
       <div class="header-wrapper">
-        <app-header>
-
-        </app-header>
+        <AppHeader/>
       </div>
       <div class="body-wrapper">
-        <user-home>
-
-        </user-home>
+        <UserHome/>
       </div>
     </div>
     <!-- <div v-if="render == 'administrator'">
@@ -198,6 +194,10 @@
     height:10%;
   }
   .body-wrapper{
-    height:100%;
+    height:90%;
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 </style>
